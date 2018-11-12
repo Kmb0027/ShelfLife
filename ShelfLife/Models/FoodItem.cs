@@ -9,5 +9,6 @@ namespace ShelfLife.Models
         public DateTime DateCreated { get; set; }
         public DateTime DateExpired { get; set; }
         public int DaysRemaining { get; set; }
+        public int ShelfLife { get; set; }
     }
 }

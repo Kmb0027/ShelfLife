@@ -22,7 +22,7 @@ namespace ShelfLife
                 conn.Open();
 
                 MySqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT idFoodItem, Name, DateCreated, ExpirationDate, IsExpired FROM FoodItem;";
+                cmd.CommandText = "SELECT idFoodItem, Name, DateCreated, ExpirationDate FROM FoodItem;";
 
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 

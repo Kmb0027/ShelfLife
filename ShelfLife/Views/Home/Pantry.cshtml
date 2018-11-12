@@ -1,6 +1,6 @@
-﻿@model List<FoodItem>;
+﻿@model ShelfLife.ViewModels.FoodItemViewModel
 
-@{ 
+@{
     Layout = "_Layout";
 }
 
@@ -11,13 +11,19 @@
             <th>Name</th>
             <th>Days Remaining</th>
         </tr>
-        @foreach (FoodItem foodItem in Model)
+        @foreach (FoodItem foodItem in Model.foodItems)
         {
-        <tr>
-            <td>@foodItem.Name</td>
-            <td>@foodItem.DaysRemaining</td>
-
-        </tr>
+            <tr>
+                <td>@foodItem.Name</td>
+                <td>@foodItem.DaysRemaining</td>
+                <td>
+                    @using (Html.BeginForm("Delete", "Home", "Post"))
+                    {
+                        <input asp-for="FoodItemIdToDelete" class="control-label" type="hidden" value="@foodItem.FoodId" />
+                        <input type="submit" value="Remove" class="btn btn-default" />
+                    }
+                </td>
+            </tr>
         }
     </tbody>
 </table>

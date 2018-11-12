@@ -64,7 +64,7 @@ namespace ShelfLife.Controllers
             FoodItemRepository foodRepo = new FoodItemRepository();
             FoodItemViewModel viewModel = new FoodItemViewModel();
             viewModel.foodItems = foodRepo.GetAllFoods();
-            return View(viewModel.foodItems);
+            return View(viewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
