@@ -15,7 +15,6 @@ namespace ShelfLife.Controllers
     {
         public IActionResult Index()
         {
-            string connString = JObject.Parse(File.ReadAllText("appsettings.Development.json"))["ConnectionString"].ToString();
             FoodItemRepository foodRepo = new FoodItemRepository();
             FoodItemViewModel viewModel = new FoodItemViewModel();
             viewModel.foodItems = foodRepo.GetAllFoods();
@@ -55,7 +54,7 @@ namespace ShelfLife.Controllers
             FoodItemRepository repo = new FoodItemRepository();
             DateTime dateCreated = DateTime.Now;
             DateTime dateExpired = dateCreated.AddDays(shelfLife);
-            repo.CreateFood(name, dateCreated, dateExpired, "false");
+            repo.CreateFood(name, dateCreated, dateExpired);
             return RedirectToAction("Index", "Home");
 
         }

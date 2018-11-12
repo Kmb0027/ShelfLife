@@ -3,33 +3,39 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2>These items are expired!</h2>
-<table class=" table table-bordered table-hover">
-    <tbody>
-        <tr>
-            <th>Name</th>
-            <th>Throw Away</th>
-        </tr>
-        @foreach (FoodItem foodItem in Model.foodItems)
-        {
-            @if (foodItem.DaysRemaining < 0)
-            {
-            <tr>
-                <td>@foodItem.Name</td>
-                <td>
-                    @using (Html.BeginForm("Delete", "Home", "Post"))
+<h1>Shelf Life</h1>
+
+@foreach (FoodItem trigger in Model.foodItems)
+{
+    if (trigger.DaysRemaining < 0)
+    {
+        <h2>These items are expired!</h2>
+            <table class=" table table-bordered table-hover">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Throw Away</th>
+                    </tr>
+                    @foreach (FoodItem foodItem in Model.foodItems)
                     {
-                        <input asp-for="FoodItemIdToDelete" class="control-label" type="hidden" value="@foodItem.FoodId" />
-                        <input type="submit" value="Delete" class="btn btn-default" />
+                        @if (foodItem.DaysRemaining < 0)
+                        {
+                        <tr>
+                            <td>@foodItem.Name</td>
+                            <td>
+                                @using (Html.BeginForm("Delete", "Home", "Post"))
+                                {
+                                    <input asp-for="FoodItemIdToDelete" class="control-label" type="hidden" value="@foodItem.FoodId" />
+                                    <input type="submit" value="Delete" class="btn btn-default" />
+                                }
+                            </td>
+                        </tr>
+                        }
                     }
-                </td>
-            </tr>
-             }
-            }
-    </tbody>
-</table>
+                </tbody>
+            </table>
+    }
+}
 
 
-
-//Need code clean up in fooditemrepo, fooditem class,
 //add general html/css flair.

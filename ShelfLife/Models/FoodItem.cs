@@ -8,11 +8,6 @@ namespace ShelfLife.Models
         public string Name { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateExpired { get; set; }
-        public string IsExpired { get; set; }
-        public int ShelfLife { get; set; }
-        public int DaysRemaining {get;set;}
-        public int FoodItemId { get; set; }
-
-
+        public int DaysRemaining { get; set; }
     }
 }
