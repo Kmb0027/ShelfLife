@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="MySql.Data" Version="8.0.13" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.6" />
+    <PackageReference Include="jQuery.UI.Combined" Version="1.12.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\_Layout.cshtml" />
+    <Content Remove="FoodItemIndexView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

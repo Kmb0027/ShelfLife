@@ -1,0 +1,21 @@
+﻿@model FoodItem;
+@{
+    ViewData["Title"] = "Label";
+
+}
+<h2>Enter item to track shelf life</h2>
+
+@using (Html.BeginForm("AddFood", "Home", "Post"))
+{
+    <label asp-for="Name" class="control-label">Name:</label>
+    <br />
+    <input type="text" name="Name" class="form-control" value="" />
+    <br />
+    <label asp-for="ShelfLife" class="control-label">Shelf Life(Days):</label>
+    <br />
+    <input type="number" name="ShelfLife" class="form-control" value="" />
+    <br />
+
+    <input type="submit" name="Submit" value="Add Food" class="btn btn-default" />
+
+}

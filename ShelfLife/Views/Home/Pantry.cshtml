@@ -1,0 +1,22 @@
+﻿@model List<FoodItem>;
+
+@{ 
+    Layout = "_Layout";
+}
+
+<h2>These are the items in your pantry</h2>
+<table class=" table table-bordered table-hover">
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Days Remaining</th>
+        </tr>
+        @foreach (FoodItem foodItem in Model)
+        {
+        <tr>
+            <td>@foodItem.Name</td>
+            <td>@foodItem.DaysRemaining</td>
+        </tr>
+        }
+    </tbody>
+</table>
