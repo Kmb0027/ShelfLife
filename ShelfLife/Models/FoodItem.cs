@@ -1,5 +1,4 @@
 ﻿using System;
-using MySql.Data.MySqlClient;
 namespace ShelfLife.Models
 {
     public class FoodItem

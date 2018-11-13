@@ -1,5 +1,4 @@
-﻿using System;
-using ShelfLife.Models;
+﻿using ShelfLife.Models;
 using System.Collections.Generic;
 namespace ShelfLife.ViewModels
 {
